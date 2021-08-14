@@ -2,10 +2,10 @@ package com.adam.calculators.salarycalculator;
 
 public class User {
 
-    String name;
-    short age;
-    double annualSalary;
-    double pensionContribution;
+    private String name;
+    private short age;
+    private double annualSalary;
+    private double pensionContribution = 0;
 
     public User (String name, short age, double annualSalary) {
         this.name = name;
@@ -17,11 +17,21 @@ public class User {
     public User (String name, short age, double annualSalary, double pensionContribution) {
         this(name, age, annualSalary);
         this.pensionContribution = pensionContribution;
-        System.out.println(String.format("Pension contribution: %s%%", pensionContribution));
-
-
     }
 
+    public String getUserName() {
+        return name;
+    }
 
+    public short getUserAge() {
+        return age;
+    }
 
+    public double getUserSalary() {
+        return annualSalary;
+    }
+
+    public double getUserPensionContribution() {
+        return pensionContribution;
+    }
 }
