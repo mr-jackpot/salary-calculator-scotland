@@ -19,19 +19,31 @@ public class CalculationProcessor {
 
         this.annualSalary = u.getUserSalary() - (u.getUserSalary() * (pensionModifier/100));
 
-        if (selection == 0)
-            System.out.println(String.format("Hourly wage = £%.5s" ,calculateHourlyWage()));
+        switch (selection) {
+            case 0:
+                summaryOfRates();
+                break;
+            case 1:
+                System.out.println(calculateHourlyWage());
+                break;
+            case 2:
+                System.out.println(calculateWeeklyWage());
+                break;
+
+        }
     }
 
-    private double calculateHourlyWage() {
-        return (annualSalary / daysInYear) / hoursInDay;
+    private String calculateHourlyWage() {
+        return String.format("Hourly wage = £%.5s" ,(annualSalary / daysInYear) / hoursInDay);
     }
 
-    private String returnCalculation() {
-        return "Example string";
+    private String calculateWeeklyWage() {
+        return String.format("Weekly wage = £%.5s", (annualSalary / weeksInYear));
     }
 
-
-
+    private void  summaryOfRates() {
+        System.out.println(calculateHourlyWage());
+        System.out.println(calculateWeeklyWage());
+    }
 
 }
